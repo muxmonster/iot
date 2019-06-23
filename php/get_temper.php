@@ -20,7 +20,9 @@ $avg_temp_now_b;
 $h_now;
 $h_now_b;
 $send_noti_now;
-/**========= Config default values.============**/
+/**
+========= Config default values.============
+**/
 $limit_temp = 28;
 $token = 'xxxx'; // <-- Token Line Application is alert Server room status.
 $time_noti_one = '0';
