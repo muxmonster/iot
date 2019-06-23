@@ -3,9 +3,8 @@
 ```
 mkdir ~/sensor
 cd ~/sensor
-git clone git://github.com/schacon/grit.git sensor
-
+git clone git://github.com/schacon/grit.git .
+```
 >Temperature Detect
 >Smoke Detect
 >Distance Detect
-```
