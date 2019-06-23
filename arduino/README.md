@@ -1,7 +1,11 @@
 # Sensor detect environment.
-`git clone git://github.com/schacon/grit.git sensor`
+## How to use.
 ```
-Temperature Detect
-Smoke Detect
-Distance Detect
+mkdir ~/sensor
+cd ~/sensor
+git clone git://github.com/schacon/grit.git sensor
+
+>Temperature Detect
+>Smoke Detect
+>Distance Detect
 ```
