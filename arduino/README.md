@@ -8,5 +8,4 @@ git clone git://github.com/schacon/grit.git .
 `
 Temperature Detect
 Smoke Detect
-Distance Detect
-`
+Distance Detect`
