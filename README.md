@@ -5,7 +5,5 @@ mkdir ~/sensor
 cd ~/sensor
 git clone https://github.com/muxmonster/iot .
 ```
-### iot/temp_humidity_smoke_door_detect.ino
-Temperature Detect <br />
-Smoke Detect <br />
-Distance Detect
+### This file `iot/temp_humidity_smoke_door_detect.ino` is detect
+> Temperature, Humidity, Smoke and Distance
