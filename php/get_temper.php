@@ -30,9 +30,9 @@ $time_noti_two = '6';
 $time_noti_three = '12';
 $time_noti_four = '18';
 
-/**============================================
+/**
 Please CHANGE IP_HOST,USERID,PASSWORD,DATABASENAME in below
-=============================================**/
+**/
 $link = mysqli_connect("IP_HOST","USERID","PASSWORD","DATABASENAME");
 mysqli_set_charset($link,"utf8");
 if (!$link) {
@@ -67,8 +67,7 @@ $sql_temp .= "HOUR(temp_date_time) = HOUR(NOW()) GROUP BY HOUR(temp_date_time)";
 $result = mysqli_query($link,$sql_temp);
 
 $avg_temp_now_b = mysqli_fetch_assoc($result);
-//$h_now_b = $avg_temp_now_b["h_dt"];
-/////////////////////////////////////
+
 function send_line_notify($message, $token)
 {
   $ch = curl_init();
@@ -87,13 +86,13 @@ function send_line_notify($message, $token)
   return $result;
 }
 
-//if ($temperature_a > $limit_temp)
+/**
+if ($temperature_a > $limit_temp)
+**/
 if ($avg_temp_now["avg_temp"] > $limit_temp)
 {
     $text = 'Temperature Server room is => '.$avg_temp_now["avg_temp"];
     send_line_notify($text, $token);
-    //$text = 'Distance: '.$distance_ultra_a;
-    //send_line_notify($text, $token);
 }
 switch ($node_Id) {
     case(0):
@@ -113,13 +112,10 @@ switch ($node_Id) {
     break;
 
 }
-/* $sql_temp = "insert into cc (temp_date_time,temp,humidity,temp_station,sm_station) value (now(),'".$temperature_a."','".$humidity_a."','".$temperature_station."')";
- $result = mysqli_query($link,$sql_temp);
- $sql_temp = "insert into cc (temp_date_time,temp,humidity,temp_station,sm_station) value (now(),'".$temperature_b."','".$humidity_b."','".$temperature_station_b."')";
- $result = mysqli_query($link,$sql_temp);
-*/
 
-//// Notify Status at 06.00 AM && 00.00 PM ////
+/** 
+Notify Status at 06.00 AM && 00.00 PM
+**/
 if($h_now == $time_noti_one)
 {
     $sql_temp = "SELECT notify FROM notify_status WHERE DATE(noti_date_time) = DATE(NOW()) ";
@@ -191,7 +187,5 @@ if($h_now == $time_noti_four)
          $result = mysqli_query($link,$sql_temp);
     }
 }
-//////////////////////
-
 session_destroy();
 ?>
