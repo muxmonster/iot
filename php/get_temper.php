@@ -1,4 +1,3 @@
-```php
 <?php
 session_start();
 /**
@@ -194,4 +193,3 @@ if($h_now == $time_noti_four)
 
 session_destroy();
 ?>
-```
