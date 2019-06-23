@@ -3,7 +3,7 @@
 ```
 mkdir ~/sensor
 cd ~/sensor
-git clone git://github.com/schacon/grit.git .
+git clone https://github.com/muxmonster/iot/arduino/temp_humidity_smoke_door_detect.ino .
 ```
 `
 Temperature Detect
