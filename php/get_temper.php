@@ -1,7 +1,7 @@
 <?php
 session_start();
 /**
-Get parameter from Arduion Mega 2560 and Ethernet Sh
+Get parameter from Arduino Mega 2560 + Ehternet shield W5100
 **/
 $node_id = $_GET["nodeid"];
 $temperature_a=$_GET["temp_a"];
