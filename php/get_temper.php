@@ -1,5 +1,8 @@
 <?php
 session_start();
+/**
+Get parameter from Arduion Mega 2560 and Ethernet Sh
+**/
 $node_id = $_GET["nodeid"];
 $temperature_a=$_GET["temp_a"];
 $humidity_a=$_GET["hum_a"];
@@ -19,15 +22,16 @@ $h_now_b;
 $send_noti_now;
 //========= Config default values.============
 $limit_temp = 28;
-$token = 'xxxx'; // Server Room.
+$token = 'xxxx'; // <-- Token Line Application is alert Server room status.
 $time_noti_one = '0';
 $time_noti_two = '6';
 $time_noti_three = '12';
 $time_noti_four = '18';
 
-//============================================
-
-$link = mysqli_connect("192.168.2.29","banmi2","banmi10691","bmhstatus");
+/**============================================
+Please CHANGE IP_HOST,USERID,PASSWORD,DATABASENAME in below
+=============================================**/
+$link = mysqli_connect("IP_HOST","USERID","PASSWORD","DATABASENAME");
 mysqli_set_charset($link,"utf8");
 if (!$link) {
    echo "Error: Unable to connect to HOSxP". PHP_EOL;
@@ -43,7 +47,6 @@ $sql_temp .= "HOUR(temp_date_time) = HOUR(NOW()) - 1 GROUP BY HOUR(temp_date_tim
 $result = mysqli_query($link,$sql_temp);
 
 $avg_temp_before = mysqli_fetch_assoc($result);
-//echo $avg_temp_before["avg_temp"]. "</br>";
 
 $sql_temp = "SELECT HOUR(temp_date_time) as h_dt, AVG(temp) as avg_temp ";
 $sql_temp .= "FROM server_room WHERE temp_station = 'A' AND ";
@@ -54,10 +57,6 @@ $result = mysqli_query($link,$sql_temp);
 
 $avg_temp_now = mysqli_fetch_assoc($result);
 $h_now = $avg_temp_now["h_dt"];
-//echo $avg_temp_now["avg_temp"];
-//echo $h_now;
-// End Temperature Station A //
-// Start Temperature now station B //
 $sql_temp = "SELECT HOUR(temp_date_time) as h_dt, AVG(temp) as avg_temp ";
 $sql_temp .= "FROM server_room WHERE temp_station = 'B' AND ";
 $sql_temp .= "temp_date_time BETWEEN DATE_ADD(NOW(), INTERVAL - 1 DAY) AND ";
