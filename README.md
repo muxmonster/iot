@@ -7,5 +7,5 @@ git clone https://github.com/muxmonster/iot/arduino/temp_humidity_smoke_door_det
 ```
 
 Temperature Detect <br />
-Smoke Detect__
+Smoke Detect <br />
 Distance Detect
